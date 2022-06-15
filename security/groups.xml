@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+ <record id="hr_recruitment_group" model="ir.module.category">
+        <field name="name">Create Employee From Recruitment</field>
+        <field name="description">hr recruitment to employee creation</field>
+    </record>
+
+     <record id="hr_recruitment_employee_create_group" model="res.groups">
+        <field name="name">Can Create Employee</field>
+        <field name="category_id" ref="hr_recruitment_group"/>
+    </record>
+
+</odoo>

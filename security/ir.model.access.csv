@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emergency_contact,emergency_contact_crwd,model_emergency_contact,,1,1,1,1
+access_education_information,education_information_crwd,model_education_information,,1,1,1,1
+access_leave_line,leave_line_crwd,model_hr_employee_leave_line,,1,1,1,1
+access_leave_type,leave_type_crwd,model_hr_leave_type,,1,1,1,1

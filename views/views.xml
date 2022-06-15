@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="hr_applicant_view_form_inherited" model="ir.ui.view">
+        <field name="name">hr.applicant.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='create_employee_from_applicant']" position="attributes">
+                <attribute name="groups">recruitment_extend.hr_recruitment_employee_create_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="before">
+                <field name="manager_id" force_saved="1" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='description']" position="after">
+                <notebook>
+                    <page string="Emergency Contact Information">
+                        <field name="mulitple_emergency_contact" widget="one2many" >
+                            <tree string="Emergency Contact" editable="bottom" >
+                                <field name="name"/>
+                                <field name="address"/>
+                                <field name="phone" widget="phone"/>
+                            </tree>
+                        </field>
+
+                    </page>
+                    <page string="Education Information">
+                        <field name="mulitple_education_information" widget="one2many" >
+                            <tree editable="bottom">
+                                <field name="institute"/>
+                                <field name="degree"/>
+                                <field name="passing_year" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+
+    <record id="hr_employee_view_form_custom_inherited" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']" position="after">
+
+                <page string="Emergency Contact Information">
+                    <field name="mulitple_emergency_contact" widget="one2many" >
+                        <tree string="Emergency Contact" editable="bottom" >
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="phone" widget="phone"/>
+                        </tree>
+                    </field>
+                </page>
+
+                <page string="Education Information">
+                    <field name="mulitple_education_information" widget="one2many" >
+                        <tree editable="bottom">
+                            <field name="institute"/>
+                            <field name="degree"/>
+                            <field name="passing_year" />
+                        </tree>
+                    </field>
+                </page>
+
+                <page string="Employee Leave Dettails">
+                    <field name="has_leave_record" invisible="0" />
+                    <field name="leave_line_ids" widget="one2many">
+                        <tree editable="bottom">
+                            <field name="leave_type_id"/>
+                            <field name="leave_day"/>
+                            <field name="this_year" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
